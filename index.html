@@ -3,78 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susan Anfield | Bespoke Real Estate</title>
+    <title>Susan Anfield | Bespoke Real Estate | Los Angeles</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
-            --gold: #D4AF37;
-            --dark-bg: #0a0a0a;
-            --light-text: #EAEAEA;
-            --grey-text: #999;
+            --accent: #FFFFFF;
+            --dark-bg: #000000;
+            --light-text: #FFFFFF;
+            --grey-text: #a0a0a0;
+            --border-color: #222222;
         }
         body {
             background-color: var(--dark-bg);
             color: var(--light-text);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400; /* Regular weight for body */
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600; /* Semi-bold for headings */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .hero-bg {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85,fit=scale-down,width=1280/https://media-production.lp-cdn.com/media/fbb273d5-3554-4dd3-a52d-ac0db56d5068');
             background-size: cover;
             background-position: center;
-        }
-        .gold-text {
-            color: var(--gold);
+            background-attachment: fixed;
         }
         .section-reveal {
             visibility: hidden;
         }
-        .property-card {
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .property-card:hover {
-            transform: translateY(-10px);
-        }
-        .property-card:hover .property-overlay {
-            opacity: 1;
+        .property-card img {
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .property-card:hover img {
-            filter: brightness(0.9);
-        }
-        .property-overlay {
-             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            transform: scale(1.05);
+            filter: brightness(1.1);
         }
         .nav-link::after {
             content: '';
             display: block;
             width: 0;
             height: 1px;
-            background: var(--gold);
+            background: var(--accent);
             transition: width .3s;
         }
         .nav-link:hover::after {
             width: 100%;
         }
         
-        .glow-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 0 5px rgba(212, 175, 55, 0), 0 0 10px rgba(212, 175, 55, 0);
-        }
-
-        .glow-button:hover {
-            background-color: var(--gold);
-            color: var(--dark-bg);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7), 0 0 25px rgba(212, 175, 55, 0.5);
-        }
-        
-        /* Mobile Menu Transitions */
         #mobile-menu {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
             transform: translateY(-100%);
@@ -84,6 +66,14 @@
             transform: translateY(0);
             opacity: 1;
         }
+        .contact-card {
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .contact-card:hover {
+            background-color: #111;
+            border-color: #444;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden antialiased">
@@ -91,11 +81,11 @@
     <!-- Header / Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="navbar">
         <div class="container mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold font-serif tracking-wider">SA</a>
+            <a href="#" class="text-2xl tracking-widest" style="font-weight: 500;">SA</a>
             <nav class="hidden md:flex items-center space-x-10">
-                <a href="#about" class="nav-link transition-colors text-lg">About</a>
-                <a href="#listings" class="nav-link transition-colors text-lg">Listings</a>
-                <a href="#contact" class="nav-link transition-colors text-lg">Contact</a>
+                <a href="#about" class="nav-link transition-colors text-sm tracking-widest">ABOUT</a>
+                <a href="#listings" class="nav-link transition-colors text-sm tracking-widest">GALLERY</a>
+                <a href="#contact" class="nav-link transition-colors text-sm tracking-widest">CONTACT</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-3xl z-50">
                 <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -105,43 +95,42 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-98 z-40 flex flex-col items-center justify-center space-y-10">
-        <a href="#about" class="text-3xl hover:text-gold-text transition-colors mobile-link">About</a>
-        <a href="#listings" class="text-3xl hover:text-gold-text transition-colors mobile-link">Listings</a>
-        <a href="#contact" class="text-3xl hover:text-gold-text transition-colors mobile-link">Contact</a>
+        <a href="#about" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">ABOUT</a>
+        <a href="#listings" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">GALLERY</a>
+        <a href="#contact" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">CONTACT</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-4 -mt-20">
         <div class="section-reveal">
-            <h1 class="text-5xl md:text-8xl font-bold uppercase tracking-widest text-white shadow-lg">Curated Lifestyles</h1>
-            <h2 class="text-xl md:text-2xl font-light tracking-wider text-gray-300 mt-4">Defining Luxury Real Estate in New York</h2>
+            <h1 class="text-5xl md:text-8xl text-white">Curated Lifestyles</h1>
+            <h2 class="text-lg md:text-xl font-light tracking-wider text-gray-200 mt-4">Defining Luxury Real Estate in Los Angeles</h2>
         </div>
         <a href="#about" class="absolute bottom-10 animate-bounce">
-            <svg class="w-8 h-8 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            <svg class="w-8 h-8 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </a>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-28 md:py-40 bg-black">
+    <section id="about" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
-                <div class="md:col-span-5 section-reveal">
-                    <img src="https://placehold.co/600x750/1a1a1a/eaeaea?text=Susan+Anfield" alt="Susan Anfield" class="rounded-lg shadow-2xl w-full">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-6 section-reveal">
+                    <img src="https://placehold.co/600x750/111111/ffffff?text=Susan+Anfield" alt="Susan Anfield" class="w-full">
                 </div>
-                <div class="md:col-span-7 section-reveal">
-                    <h2 class="text-4xl md:text-5xl mb-6">Susan Anfield</h2>
-                    <h3 class="text-2xl gold-text mb-8">A Visionary in Luxury Real Estate</h3>
-                    <p class="mb-6 text-gray-400 text-lg leading-relaxed">With a career built on integrity and a reputation for achieving the impossible, Susan Anfield offers more than just real estate services—she provides a gateway to a world of architectural marvels and exclusive living. Her name is synonymous with the city's most prestigious properties.</p>
-                    <p class="mb-10 text-gray-400 text-lg leading-relaxed">Susan's approach is deeply personal, rooted in the belief that a home is the ultimate expression of self. She invests time in understanding her clients' aspirations to find a perfect match that transcends the ordinary.</p>
-                    <div class="flex items-center space-x-8">
+                <div class="md:col-span-6 section-reveal">
+                    <h2 class="text-4xl md:text-6xl mb-10">Susan Anfield</h2>
+                    <p class="mb-6 text-gray-300 text-base leading-relaxed max-w-lg">With a career built on integrity and a reputation for achieving the impossible, Susan Anfield offers more than just real estate services—she provides a gateway to a world of architectural marvels and exclusive living.</p>
+                    <p class="mb-12 text-gray-300 text-base leading-relaxed max-w-lg">Her name is synonymous with the city's most prestigious properties, curating a life less ordinary for a discerning clientele.</p>
+                    <div class="flex items-center space-x-12">
                          <div>
-                            <p class="text-4xl font-bold gold-text">$40B+</p>
-                            <p class="text-sm uppercase tracking-widest text-gray-500">In Career Sales</p>
+                            <p class="text-5xl font-bold" style="font-weight: 700;">$40B+</p>
+                            <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">In Career Sales</p>
                         </div>
-                        <div class="border-l border-gray-700 h-16"></div>
+                        <div class="border-l border-gray-800 h-16"></div>
                         <div>
-                            <p class="text-4xl font-bold gold-text">#1</p>
-                            <p class="text-sm uppercase tracking-widest text-gray-500">In New York Luxury Market</p>
+                            <p class="text-5xl font-bold" style="font-weight: 700;">#1</p>
+                            <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">Los Angeles Market</p>
                         </div>
                     </div>
                 </div>
@@ -149,36 +138,101 @@
         </div>
     </section>
 
-    <!-- Featured Listings Section -->
-    <section id="listings" class="py-28 md:py-40">
+    <!-- Gallery Section -->
+    <section id="listings" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20 section-reveal">
-                <h2 class="text-4xl md:text-5xl font-bold">Iconic Properties</h2>
-                <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">A portfolio of homes that redefine luxury living.</p>
+            <div class="text-left mb-20 section-reveal">
+                <h2 class="text-4xl md:text-6xl font-bold">Gallery</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-24">
                 <!-- Property 1 -->
-                <div class="property-card rounded-lg overflow-hidden relative section-reveal group">
-                    <img src="https://i.pinimg.com/736x/0e/25/85/0e258570bd430ce8ee9da5ad49491528.jpg" alt="Modern Interior" class="w-full h-[500px] object-cover transition-all duration-500">
-                    <div class="property-overlay absolute bottom-0 left-0 right-0 p-8 text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <h3 class="text-2xl font-bold">SoHo Loft Penthouse</h3>
-                        <p class="mt-1 text-gray-300">3 Beds | 4 Baths | 4,200 sqft</p>
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/0e/25/85/0e258570bd430ce8ee9da5ad49491528.jpg" alt="Modern Interior" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">SoHo Loft Penthouse</h3>
+                        <p class="mt-2 text-gray-400 font-light">3 Beds | 4 Baths | 4,200 sqft</p>
                     </div>
                 </div>
                 <!-- Property 2 -->
-                <div class="property-card rounded-lg overflow-hidden relative section-reveal group lg:mt-20">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrlarco5GMkckNajZNx1iECJve_BcBaoVIa9WlH2fttHl-APV5WfRovp71pZr0wCa2J-Y&usqp=CAU" alt="Luxury Living Room" class="w-full h-[500px] object-cover transition-all duration-500">
-                     <div class="property-overlay absolute bottom-0 left-0 right-0 p-8 text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <h3 class="text-2xl font-bold">Park Avenue Residence</h3>
-                        <p class="mt-1 text-gray-300">4 Beds | 5.5 Baths | 6,000 sqft</p>
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrlarco5GMkckNajZNx1iECJve_BcBaoVIa9WlH2fttHl-APV5WfRovp71pZr0wCa2J-Y&usqp=CAU" alt="Luxury Living Room" class="w-full h-auto object-cover">
+                    </div>
+                     <div class="mt-6">
+                        <h3 class="text-2xl">Beverly Hills Residence</h3>
+                        <p class="mt-2 text-gray-400 font-light">4 Beds | 5.5 Baths | 6,000 sqft</p>
                     </div>
                 </div>
                 <!-- Property 3 -->
-                <div class="property-card rounded-lg overflow-hidden relative section-reveal group">
-                    <img src="https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85,fit=scale-down,width=1280/https://media-production.lp-cdn.com/media/fbb273d5-3554-4dd3-a52d-ac0db56d5068" alt="Modern Exterior" class="w-full h-[500px] object-cover transition-all duration-500">
-                     <div class="property-overlay absolute bottom-0 left-0 right-0 p-8 text-white opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <h3 class="text-2xl font-bold">The Hamptons Getaway</h3>
-                        <p class="mt-1 text-gray-300">6 Beds | 8 Baths | 11,000 sqft</p>
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85,fit=scale-down,width=1280/https://media-production.lp-cdn.com/media/fbb273d5-3554-4dd3-a52d-ac0db56d5068" alt="Modern Exterior" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">The Malibu Getaway</h3>
+                        <p class="mt-2 text-gray-400 font-light">6 Beds | 8 Baths | 11,000 sqft</p>
+                    </div>
+                </div>
+                 <!-- Property 4 -->
+                 <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop" alt="Hills Estate" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Hollywood Hills Estate</h3>
+                        <p class="mt-2 text-gray-400 font-light">5 Beds | 6 Baths | 7,500 sqft</p>
+                    </div>
+                </div>
+                <!-- Property 5 -->
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://robbreport.com/wp-content/uploads/2019/01/ISaleyn2sm99i01000000000.jpg?w=1000" alt="Bel Air Architectural" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Bel Air Architectural</h3>
+                        <p class="mt-2 text-gray-400 font-light">7 Beds | 9 Baths | 12,000 sqft</p>
+                    </div>
+                </div>
+                <!-- Property 6 -->
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000" alt="Sunset Plaza Modern" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Sunset Plaza Modern</h3>
+                        <p class="mt-2 text-gray-400 font-light">4 Beds | 5 Baths | 5,500 sqft</p>
+                    </div>
+                </div>
+                 <!-- Property 7 -->
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://images.squarespace-cdn.com/content/v1/58487dc4b8a79b6d02499b60/31186316-57f7-4ae6-87f1-49253e82c262/Francis+York+Modern+Mansion+in+the+Hollywood+Hills%2C+California+40.jpg" alt="Pacific Palisades Villa" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Pacific Palisades Villa</h3>
+                        <p class="mt-2 text-gray-400 font-light">6 Beds | 7 Baths | 9,000 sqft</p>
+                    </div>
+                </div>
+                 <!-- Property 8 -->
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://static.giggster.com/images/location/1657d515-be5f-43bb-a309-d09225cc8aa4/4e8ae5c3-3d8e-458b-b62f-70a79c467cbc/mid_x3.jpeg" alt="Laguna Beach Oceanfront" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Laguna Beach Oceanfront</h3>
+                        <p class="mt-2 text-gray-400 font-light">5 Beds | 5 Baths | 6,200 sqft</p>
+                    </div>
+                </div>
+                 <!-- Property 9 -->
+                <div class="property-card section-reveal group">
+                    <div class="overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVNMEUIZqpMil54bZLhmVuxGnaNoMe_miZKA&s" alt="Montecito Glass House" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-2xl">Montecito Glass House</h3>
+                        <p class="mt-2 text-gray-400 font-light">4 Beds | 4 Baths | 5,000 sqft</p>
                     </div>
                 </div>
             </div>
@@ -186,45 +240,58 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-28 md:py-40 bg-black">
-        <div class="container mx-auto px-6 text-center section-reveal">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12">Words of Distinction</h2>
-            <div class="max-w-4xl mx-auto">
-                <p class="text-2xl md:text-3xl italic text-gray-300 leading-relaxed">"Working with Susan was a revelation. Her market insight is unparalleled, and her dedication is absolute. She didn't just find us a house; she found us a home that will be in our family for generations."</p>
-                <p class="mt-8 font-bold text-lg gold-text uppercase tracking-widest">- The Astor Family</p>
+    <section class="py-28 md:py-48 bg-black">
+        <div class="container mx-auto px-6 section-reveal">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-24">Words of Distinction</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+                <!-- Review 1 -->
+                <div class="text-center border-t border-gray-800 pt-8">
+                    <p class="text-lg text-gray-200 leading-relaxed italic">"Susan's market insight is unparalleled. She didn't just find us a house; she found us a home that will be in our family for generations."</p>
+                    <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Astor Family</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="text-center border-t border-gray-800 pt-8">
+                     <p class="text-lg text-gray-200 leading-relaxed italic">"A seamless experience from start to finish. Susan's professionalism and deep market knowledge are second to none. Truly the best in the business."</p>
+                    <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Getty Family</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="text-center border-t border-gray-800 pt-8">
+                     <p class="text-lg text-gray-200 leading-relaxed italic">"We found our dream home thanks to Susan's incredible dedication and eye for detail. The entire process was flawless and enjoyable."</p>
+                    <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Chen Family</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-28 md:py-40">
+    <section id="contact" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6 text-center section-reveal">
-            <h2 class="text-4xl md:text-5xl font-bold">Begin The Conversation</h2>
-            <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">For private consultations and exclusive viewings, please reach out directly.</p>
-            <div class="mt-12">
-                 <a href="mailto:contact@susananfield.com" class="inline-block bg-transparent border border-gold-text text-gold-text py-4 px-10 rounded-lg text-xl uppercase tracking-wider glow-button">
-                    Inquire via Email
+            <h2 class="text-4xl md:text-6xl font-bold">Begin The Conversation</h2>
+            <p class="text-gray-400 mt-6 text-base max-w-2xl mx-auto font-light leading-relaxed">For private consultations and exclusive viewings, please reach out directly. We welcome all inquiries and look forward to assisting you.</p>
+            <div class="mt-24 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="mailto:contact@susananfield.com" class="contact-card group p-12 flex flex-col items-center justify-center">
+                    <h3 class="text-sm uppercase tracking-widest text-gray-400">Email Us</h3>
+                    <p class="mt-2 text-2xl md:text-3xl text-white font-medium group-hover:opacity-80 transition-opacity">contact@susananfield.com</p>
                 </a>
-            </div>
-            <div class="mt-16 text-gray-400">
-                <p class="text-lg">Or contact us at</p>
-                <p class="text-2xl text-white mt-2">+1 (212) 555-0123</p>
+                <a href="tel:+13105550123" class="contact-card group p-12 flex flex-col items-center justify-center">
+                    <h3 class="text-sm uppercase tracking-widest text-gray-400">Call Us</h3>
+                    <p class="mt-2 text-2xl md:text-3xl text-white font-medium group-hover:opacity-80 transition-opacity">+1 (310) 555-0123</p>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-10 border-t border-gray-900">
-        <div class="container mx-auto px-6 text-center text-gray-600">
-            <p class="mb-4">
-                <a href="#" class="mx-3 hover:text-gold-text transition-colors">Instagram</a>
-                <span class="text-gray-700">&bull;</span>
-                <a href="#" class="mx-3 hover:text-gold-text transition-colors">LinkedIn</a>
-                 <span class="text-gray-700">&bull;</span>
-                <a href="#" class="mx-3 hover:text-gold-text transition-colors">Facebook</a>
+    <footer class="py-16 border-t border-gray-900 bg-black">
+        <div class="container mx-auto px-6 text-center text-gray-700">
+             <a href="#" class="text-2xl tracking-widest mb-8 inline-block" style="font-weight: 500;">SA</a>
+            <p class="mb-6">
+                <a href="#" class="mx-4 hover:text-white transition-colors text-sm uppercase tracking-widest">Instagram</a>
+                <a href="#" class="mx-4 hover:text-white transition-colors text-sm uppercase tracking-widest">LinkedIn</a>
+                <a href="#" class="mx-4 hover:text-white transition-colors text-sm uppercase tracking-widest">Facebook</a>
             </p>
-            <p>&copy; <span id="year"></span> Susan Anfield | Bespoke Real Estate. All Rights Reserved.</p>
-            <p class="text-sm mt-2 opacity-50">100 Park Avenue, New York, NY 10017</p>
+            <p class="text-xs tracking-wider">&copy; <span id="year"></span> Susan Anfield | Bespoke Real Estate. All Rights Reserved.</p>
+            <p class="text-xs mt-2 opacity-50 tracking-wider">Beverly Hills, Los Angeles, CA 90210</p>
         </div>
     </footer>
 
@@ -235,9 +302,9 @@
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    navbar.classList.add('bg-black/80', 'backdrop-blur-sm', 'shadow-2xl');
+                    navbar.classList.add('bg-black/80', 'backdrop-blur-sm');
                 } else {
-                    navbar.classList.remove('bg-black/80', 'backdrop-blur-sm', 'shadow-2xl');
+                    navbar.classList.remove('bg-black/80', 'backdrop-blur-sm');
                 }
             });
 
@@ -268,15 +335,15 @@
             const sr = ScrollReveal();
             sr.reveal('.section-reveal', {
                 delay: 250,
-                distance: '60px',
-                duration: 1200,
+                distance: '50px',
+                duration: 1000,
                 easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                interval: 200,
+                interval: 150,
                 origin: 'bottom',
                 viewFactor: 0.2
             });
-            sr.reveal('.hero-bg h1', { delay: 500, origin: 'top', distance: '40px'});
-            sr.reveal('.hero-bg h2', { delay: 700, origin: 'top', distance: '40px'});
+            sr.reveal('.hero-bg h1', { delay: 500, origin: 'bottom', distance: '40px'});
+            sr.reveal('.hero-bg h2', { delay: 700, origin: 'bottom', distance: '40px'});
 
 
             // Set current year in footer

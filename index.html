@@ -74,11 +74,15 @@
             background-color: #111;
             border-color: #444;
         }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden antialiased">
 
-    <!-- Header / Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="navbar">
         <div class="container mx-auto px-6 py-5 flex justify-between items-center">
             <a href="#" class="text-2xl tracking-widest" style="font-weight: 500;">SA</a>
@@ -93,14 +97,12 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-98 z-40 flex flex-col items-center justify-center space-y-10">
         <a href="#about" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">ABOUT</a>
         <a href="#listings" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">GALLERY</a>
         <a href="#contact" class="text-2xl hover:opacity-70 transition-opacity mobile-link tracking-widest">CONTACT</a>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-4 -mt-20">
         <div class="section-reveal">
             <h1 class="text-5xl md:text-8xl text-white">Curated Lifestyles</h1>
@@ -111,7 +113,6 @@
         </a>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-16 items-center">
@@ -138,14 +139,12 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="listings" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6">
             <div class="text-left mb-20 section-reveal">
                 <h2 class="text-4xl md:text-6xl font-bold">Gallery</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-24">
-                <!-- Property 1 -->
                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://i.pinimg.com/736x/0e/25/85/0e258570bd430ce8ee9da5ad49491528.jpg" alt="Modern Interior" class="w-full h-auto object-cover">
@@ -155,7 +154,6 @@
                         <p class="mt-2 text-gray-400 font-light">3 Beds | 4 Baths | 4,200 sqft</p>
                     </div>
                 </div>
-                <!-- Property 2 -->
                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://ca-times.brightspotcdn.com/dims4/default/1af25b6/2147483647/strip/true/crop/928x619+0+19/resize/1440x960!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F7d%2F67%2Faa98c2d946aa8d6fb1d2f44a6603%2Fimage-11.jpeg" alt="Luxury Living Room" class="w-full h-auto object-cover">
@@ -165,7 +163,6 @@
                         <p class="mt-2 text-gray-400 font-light">4 Beds | 5.5 Baths | 6,000 sqft</p>
                     </div>
                 </div>
-                <!-- Property 3 -->
                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85,fit=scale-down,width=1280/https://media-production.lp-cdn.com/media/fbb273d5-3554-4dd3-a52d-ac0db56d5068" alt="Modern Exterior" class="w-full h-auto object-cover">
@@ -175,7 +172,6 @@
                         <p class="mt-2 text-gray-400 font-light">6 Beds | 8 Baths | 11,000 sqft</p>
                     </div>
                 </div>
-                 <!-- Property 4 -->
                  <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop" alt="Hills Estate" class="w-full h-auto object-cover">
@@ -185,7 +181,6 @@
                         <p class="mt-2 text-gray-400 font-light">5 Beds | 6 Baths | 7,500 sqft</p>
                     </div>
                 </div>
-                <!-- Property 5 -->
                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://robbreport.com/wp-content/uploads/2019/01/ISaleyn2sm99i01000000000.jpg?w=1000" alt="Bel Air Architectural" class="w-full h-auto object-cover">
@@ -195,7 +190,6 @@
                         <p class="mt-2 text-gray-400 font-light">7 Beds | 9 Baths | 12,000 sqft</p>
                     </div>
                 </div>
-                <!-- Property 6 -->
                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://robbreport.com/wp-content/uploads/2020/05/rubiks06.jpg?w=1000" alt="Sunset Plaza Modern" class="w-full h-auto object-cover">
@@ -205,8 +199,7 @@
                         <p class="mt-2 text-gray-400 font-light">4 Beds | 5 Baths | 5,500 sqft</p>
                     </div>
                 </div>
-                 <!-- Property 7 -->
-                <div class="property-card section-reveal group">
+                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://images.squarespace-cdn.com/content/v1/58487dc4b8a79b6d02499b60/31186316-57f7-4ae6-87f1-49253e82c262/Francis+York+Modern+Mansion+in+the+Hollywood+Hills%2C+California+40.jpg" alt="Pacific Palisades Villa" class="w-full h-auto object-cover">
                     </div>
@@ -215,8 +208,7 @@
                         <p class="mt-2 text-gray-400 font-light">6 Beds | 7 Baths | 9,000 sqft</p>
                     </div>
                 </div>
-                 <!-- Property 8 -->
-                <div class="property-card section-reveal group">
+                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://static.giggster.com/images/location/1657d515-be5f-43bb-a309-d09225cc8aa4/4e8ae5c3-3d8e-458b-b62f-70a79c467cbc/mid_x3.jpeg" alt="Laguna Beach Oceanfront" class="w-full h-auto object-cover">
                     </div>
@@ -225,8 +217,7 @@
                         <p class="mt-2 text-gray-400 font-light">5 Beds | 5 Baths | 6,200 sqft</p>
                     </div>
                 </div>
-                 <!-- Property 9 -->
-                <div class="property-card section-reveal group">
+                 <div class="property-card section-reveal group">
                     <div class="overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVNMEUIZqpMil54bZLhmVuxGnaNoMe_miZKA&s" alt="Montecito Glass House" class="w-full h-auto object-cover">
                     </div>
@@ -239,22 +230,18 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6 section-reveal">
             <h2 class="text-4xl md:text-6xl font-bold text-center mb-24">Words of Distinction</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-                <!-- Review 1 -->
                 <div class="text-center border-t border-gray-800 pt-8">
                     <p class="text-lg text-gray-200 leading-relaxed italic">"Susan's market insight is unparalleled. She didn't just find us a house; she found us a home that will be in our family for generations."</p>
                     <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Astor Family</p>
                 </div>
-                <!-- Review 2 -->
                 <div class="text-center border-t border-gray-800 pt-8">
                      <p class="text-lg text-gray-200 leading-relaxed italic">"A seamless experience from start to finish. Susan's professionalism and deep market knowledge are second to none. Truly the best in the business."</p>
                     <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Getty Family</p>
                 </div>
-                <!-- Review 3 -->
                 <div class="text-center border-t border-gray-800 pt-8">
                      <p class="text-lg text-gray-200 leading-relaxed italic">"We found our dream home thanks to Susan's incredible dedication and eye for detail. The entire process was flawless and enjoyable."</p>
                     <p class="mt-6 text-xs uppercase tracking-widest text-gray-500">- The Chen Family</p>
@@ -263,7 +250,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-28 md:py-48 bg-black">
         <div class="container mx-auto px-6 text-center section-reveal">
             <h2 class="text-4xl md:text-6xl font-bold">Begin The Conversation</h2>
@@ -281,7 +267,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-16 border-t border-gray-900 bg-black">
         <div class="container mx-auto px-6 text-center text-gray-700">
              <a href="#" class="text-2xl tracking-widest mb-8 inline-block" style="font-weight: 500;">SA</a>
